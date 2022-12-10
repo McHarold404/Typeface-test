@@ -2,7 +2,9 @@ import cv2 as cv
 import numpy as np
 import sys
 
-img = cv.imread("1.jpeg", cv.IMREAD_GRAYSCALE)
+imgFile = input()
+
+img = cv.imread(imgFile, cv.IMREAD_GRAYSCALE)
 kernel = np.ones((3, 3), np.uint8)
 img = cv.erode(img, kernel)
 
@@ -19,7 +21,6 @@ sys.setrecursionlimit(1000000)
 
 
 def dfs(i, j, arr):
-    # print(i, j)
     vis[i][j] = 1
     arr[0] = min(arr[0], i)
     arr[1] = min(arr[1], j)
